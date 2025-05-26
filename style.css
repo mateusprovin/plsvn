@@ -75,6 +75,12 @@ nav {
     background-color: var(--cor-secundaria); /* Fundo da nav bar */
     padding: 10px 0;
     box-shadow: var(--sombra-leve);
+
+    /* PROPRIEDADES PARA TORNAR A NAV BAR FIXA: */
+    position: fixed; /* Torna o elemento fixo na viewport */
+    top: 0;          /* Alinha ao topo da viewport */
+    left: 0;         /* Alinha à esquerda da viewport */
+    z-index: 1000;   /* Garante que esteja acima de outros elementos */
 }
 
 nav ul {
