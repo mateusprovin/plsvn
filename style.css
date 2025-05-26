@@ -181,6 +181,10 @@ section ul li:hover {
 
     header img {
         max-width: 350px;
+        height: auto;
+        border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra-leve);
+    border: 3px solid var(--cor-secundaria); /* Borda para a logo */
     }
 
     nav ul {
