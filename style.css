@@ -9,8 +9,19 @@
     padding: 20px;
     width: 200px;
     text-align: center;
-    image-resolution: 1920 1080;
 }
-.product{
-    background-color: rgb(50, 76, 67);
+.container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.container-flex img {
+    max-width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+.container-flex p {
+    max-width: 400%;
+    text-align: left;
 }
