@@ -180,7 +180,7 @@ section ul li:hover {
     }
 
     header img {
-        max-width: 350px;
+        max-width: 850px;
         height: auto;
         border-radius: var(--borda-arredondada);
     box-shadow: var(--sombra-leve);
