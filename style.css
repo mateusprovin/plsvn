@@ -1,81 +1,244 @@
 /* Importação da Fonte Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap');
 
-/* Estilos Gerais do Corpo da Página */
-body {
-    font-family: 'Montserrat', sans-serif; /* Uma fonte moderna e legível */
-    background-color: #f4f7f6; /* Um fundo cinza claro para suavizar */
-    color: #333; /* Cor de texto padrão */
+/* Variáveis CSS (opcional, mas bom para organização) */
+:root {
+    --cor-primaria: #0056b3; /* Azul vibrante */
+    --cor-secundaria: #003f80; /* Azul mais escuro */
+    --cor-fundo: #f4f7f6; /* Cinza claro suave */
+    --cor-texto: #333; /* Cinza escuro para texto */
+    --cor-texto-claro: #fff; /* Branco para texto em fundo escuro */
+    --sombra-leve: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 5px 15px rgba(0, 0, 0, 0.15);
+    --borda-arredondada: 8px;
+}
+
+/* Reset Básico e Estilos Gerais do Corpo */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Fonte para o corpo do texto */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6; /* Melhor leitura */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza todo o conteúdo da página */
-    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da viewport */
+    align-items: center;
 }
 
 /* Estilos do Cabeçalho */
 header {
-    background-color: #0056b3; /* Um azul vibrante para o cabeçalho */
-    color: #fff; /* Texto branco no cabeçalho */
-    padding: 20px 0;
-    width: 100%; /* Cabeçalho ocupa toda a largura */
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 30px 20px;
+    width: 100%;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
-    margin-bottom: 30px; /* Espaço abaixo do cabeçalho */
+    box-shadow: var(--sombra-media);
+    display: flex; /* Usamos flexbox para organizar os elementos do header */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaço entre os itens do cabeçalho */
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.8em; /* Tamanho maior para o título */
-    font-weight: 700; /* Negrito para o título */
-    letter-spacing: 2px; /* Espaçamento entre as letras */
-    text-transform: uppercase; /* Texto em maiúsculas */
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em; /* Tamanho maior para o título principal */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-/* Estilos do Contêiner da Imagem e Texto (Flexbox) */
-.container-flex {
-    display: flex; /* Habilita o Flexbox */
-    align-items: center; /* Alinha verticalmente os itens (imagem e texto) ao centro */
-    justify-content: center; /* Centraliza horizontalmente o grupo imagem/texto */
-    max-width: 900px; /* Largura máxima para o contêiner */
-    padding: 30px;
-    background-color: #fff; /* Fundo branco para o bloco de conteúdo */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-    gap: 40px; /* Espaço entre a imagem e o texto */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
-    text-align: center; /* Centraliza o conteúdo se quebrar a linha */
-}
-
-.container-flex img {
-    max-width: 200px; /* Tamanho da logo */
+header img {
+    max-width: 180px; /* Tamanho da logo no cabeçalho */
     height: auto;
-    border-radius: 8px; /* Bordas levemente arredondadas para a imagem */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para a imagem */
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra-leve);
+    border: 3px solid var(--cor-secundaria); /* Borda para a logo */
 }
 
-.container-flex p {
-    font-size: 1.2em; /* Tamanho maior para o parágrafo */
-    line-height: 1.6; /* Espaçamento entre as linhas para melhor leitura */
-    max-width: 500px; /* Limita a largura do texto para evitar linhas muito longas */
-    text-align: left; /* Alinha o texto à esquerda dentro do seu próprio bloco */
-    margin: 0; /* Remove margens padrão do parágrafo */
+header p {
+    font-size: 1.1em;
+    max-width: 700px; /* Limita a largura do texto de descrição */
+    margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo */
+    line-height: 1.8;
+}
+
+/* Navegação (Nav Bar) */
+nav {
+    width: 100%;
+    background-color: var(--cor-secundaria); /* Fundo da nav bar */
+    padding: 10px 0;
+    box-shadow: var(--sombra-leve);
+}
+
+nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Coloca os itens da lista em linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 30px; /* Espaço entre os itens do menu */
+}
+
+nav ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none; /* Remove sublinhado dos links */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito suave ao passar o mouse */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo levemente transparente ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+/* Estilos da Seção Principal */
+main {
+    width: 100%;
+    max-width: 1000px; /* Largura máxima para o conteúdo principal */
+    padding: 30px 20px;
+    margin: 30px auto; /* Centraliza o main e dá espaço */
+    background-color: var(--cor-texto-claro); /* Fundo branco para o conteúdo */
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra-media);
+}
+
+section {
+    padding: 30px;
+    margin-bottom: 30px;
+    background-color: #fcfcfc; /* Um branco bem leve para as seções */
+    border-radius: var(--borda-arredondada);
+    border: 1px solid #eee; /* Borda suave */
+}
+
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid var(--cor-primaria);
+    padding-bottom: 10px;
+}
+
+section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: var(--cor-secundaria);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+section p {
+    font-size: 1.05em;
+    margin-bottom: 15px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    justify-content: center; /* Centraliza os itens da lista */
+    gap: 15px; /* Espaço entre os itens da lista */
+    margin-top: 20px;
+}
+
+section ul li {
+    background-color: var(--cor-fundo);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    transition: background-color 0.3s ease;
+}
+
+section ul li:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    transform: translateY(-3px);
 }
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    .container-flex {
-        flex-direction: column; /* Em telas menores, a imagem e o texto ficam em coluna */
-        gap: 20px; /* Reduz o espaço entre eles */
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    header img {
+        max-width: 150px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Menu em coluna em telas menores */
+        gap: 10px;
+    }
+
+    nav ul li a {
+        padding: 10px 0;
+        display: block; /* Ocupa toda a largura para cada item do menu */
+        text-align: center;
+    }
+
+    main {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    section {
         padding: 20px;
     }
 
-    .container-flex p {
-        text-align: center; /* Centraliza o texto quando estiver em coluna */
+    section h2 {
+        font-size: 1.8em;
     }
 
-    h1 {
-        font-size: 2em; /* Diminui o título em telas menores */
+    section h3 {
+        font-size: 1.3em;
+    }
+
+    section p {
+        font-size: 1em;
+    }
+
+    section ul {
+        flex-direction: column;
+        align-items: center; /* Centraliza itens da lista quando em coluna */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header img {
+        max-width: 120px;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    section h3 {
+        font-size: 1.2em;
     }
 }
