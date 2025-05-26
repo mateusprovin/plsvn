@@ -1,27 +1,85 @@
-.product-container {
+Com certeza! Aqui está o código CSS para você copiar e colar diretamente no seu arquivo style.css.
+
+CSS
+
+/* Importação da Fonte Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Estilos Gerais do Corpo da Página */
+body {
+    font-family: 'Montserrat', sans-serif; /* Uma fonte moderna e legível */
+    background-color: #f4f7f6; /* Um fundo cinza claro para suavizar */
+    color: #333; /* Cor de texto padrão */
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; /* Centraliza todo o conteúdo da página */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da viewport */
 }
 
-.product {
-    border: 1px solid #77a9ff;
-    padding: 20px;
-    width: 200px;
+/* Estilos do Cabeçalho */
+header {
+    background-color: #0056b3; /* Um azul vibrante para o cabeçalho */
+    color: #fff; /* Texto branco no cabeçalho */
+    padding: 20px 0;
+    width: 100%; /* Cabeçalho ocupa toda a largura */
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+    margin-bottom: 30px; /* Espaço abaixo do cabeçalho */
 }
+
+h1 {
+    margin: 0;
+    font-size: 2.8em; /* Tamanho maior para o título */
+    font-weight: 700; /* Negrito para o título */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* Estilos do Contêiner da Imagem e Texto (Flexbox) */
 .container-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    display: flex; /* Habilita o Flexbox */
+    align-items: center; /* Alinha verticalmente os itens (imagem e texto) ao centro */
+    justify-content: center; /* Centraliza horizontalmente o grupo imagem/texto */
+    max-width: 900px; /* Largura máxima para o contêiner */
+    padding: 30px;
+    background-color: #fff; /* Fundo branco para o bloco de conteúdo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    gap: 40px; /* Espaço entre a imagem e o texto */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    text-align: center; /* Centraliza o conteúdo se quebrar a linha */
 }
+
 .container-flex img {
-    max-width: 150px;
+    max-width: 200px; /* Tamanho da logo */
     height: auto;
-    margin-right: 20px;
+    border-radius: 8px; /* Bordas levemente arredondadas para a imagem */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para a imagem */
 }
+
 .container-flex p {
-    max-width: 400%;
-    text-align: left;
+    font-size: 1.2em; /* Tamanho maior para o parágrafo */
+    line-height: 1.6; /* Espaçamento entre as linhas para melhor leitura */
+    max-width: 500px; /* Limita a largura do texto para evitar linhas muito longas */
+    text-align: left; /* Alinha o texto à esquerda dentro do seu próprio bloco */
+    margin: 0; /* Remove margens padrão do parágrafo */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .container-flex {
+        flex-direction: column; /* Em telas menores, a imagem e o texto ficam em coluna */
+        gap: 20px; /* Reduz o espaço entre eles */
+        padding: 20px;
+    }
+
+    .container-flex p {
+        text-align: center; /* Centraliza o texto quando estiver em coluna */
+    }
+
+    h1 {
+        font-size: 2em; /* Diminui o título em telas menores */
+    }
 }
