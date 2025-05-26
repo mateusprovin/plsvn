@@ -17,18 +17,20 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif; /* Fonte para o corpo do texto */
+    font-family: 'Open Sans', sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    line-height: 1.6; /* Melhor leitura */
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Ajuste o padding-top para acomodar a altura da nav bar fixa (agora com logo) */
+    padding-top: 90px; /* Mantém o valor anterior para a nav com logo */
 }
 
 /* Estilos do Cabeçalho */
@@ -39,80 +41,96 @@ header {
     width: 100%;
     text-align: center;
     box-shadow: var(--sombra-media);
-    display: flex; /* Usamos flexbox para organizar os elementos do header */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Espaço entre os itens do cabeçalho */
+    gap: 15px;
+    padding-top: 20px;
 }
 
 header h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em; /* Tamanho maior para o título principal */
+    font-size: 3em;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
+/* Estilo para a imagem no HEADER (logo principal) */
 header img {
-    max-width: 180px; /* Tamanho da logo no cabeçalho */
+    max-width: 180px; /* Tamanho da logo principal no cabeçalho */
     height: auto;
     border-radius: var(--borda-arredondada);
     box-shadow: var(--sombra-leve);
-    border: 3px solid var(--cor-secundaria); /* Borda para a logo */
+    border: 3px solid var(--cor-secundaria);
+    margin-bottom: 20px; /* Espaço abaixo da logo no header */
 }
 
 header p {
     font-size: 1.1em;
-    max-width: 700px; /* Limita a largura do texto de descrição */
-    margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo */
+    max-width: 700px;
+    margin: 0 auto;
     line-height: 1.8;
 }
 
 /* Navegação (Nav Bar) */
 nav {
     width: 100%;
-    background-color: var(--cor-secundaria); /* Fundo da nav bar */
-    padding: 10px 0;
+    background-color: var(--cor-secundaria);
+    padding: 10px 20px;
     box-shadow: var(--sombra-leve);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
-    /* PROPRIEDADES PARA TORNAR A NAV BAR FIXA: */
-    position: fixed; /* Torna o elemento fixo na viewport */
-    top: 0;          /* Alinha ao topo da viewport */
-    left: 0;         /* Alinha à esquerda da viewport */
-    z-index: 1000;   /* Garante que esteja acima de outros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaça a logo da nav e o menu */
+}
+
+/* Estilo para a imagem na NAV BAR (logo menor e fixa) */
+.nav-logo {
+    max-width: 60px; /* Tamanho menor para a logo na nav bar */
+    height: auto;
+    border-radius: 50%; /* Faz a logo circular (opcional, mas fica legal) */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-right: 20px; /* Espaço entre a logo e o menu */
 }
 
 nav ul {
-    list-style: none; /* Remove os marcadores da lista */
-    display: flex; /* Coloca os itens da lista em linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 30px; /* Espaço entre os itens do menu */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     color: var(--cor-texto-claro);
-    text-decoration: none; /* Remove sublinhado dos links */
+    text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 1.1em;
     padding: 8px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito suave ao passar o mouse */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Fundo levemente transparente ao passar o mouse */
-    transform: translateY(-2px); /* Efeito de "levantar" */
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Estilos da Seção Principal */
 main {
     width: 100%;
-    max-width: 1000px; /* Largura máxima para o conteúdo principal */
+    max-width: 1000px;
     padding: 30px 20px;
-    margin: 30px auto; /* Centraliza o main e dá espaço */
-    background-color: var(--cor-texto-claro); /* Fundo branco para o conteúdo */
+    margin: 30px auto;
+    background-color: var(--cor-texto-claro);
     border-radius: var(--borda-arredondada);
     box-shadow: var(--sombra-media);
 }
@@ -120,9 +138,9 @@ main {
 section {
     padding: 30px;
     margin-bottom: 30px;
-    background-color: #fcfcfc; /* Um branco bem leve para as seções */
+    background-color: #fcfcfc;
     border-radius: var(--borda-arredondada);
-    border: 1px solid #eee; /* Borda suave */
+    border: 1px solid #eee;
 }
 
 section h2 {
@@ -154,12 +172,12 @@ section p {
 }
 
 section ul {
-    list-style: none; /* Remove marcadores da lista */
+    list-style: none;
     padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
-    justify-content: center; /* Centraliza os itens da lista */
-    gap: 15px; /* Espaço entre os itens da lista */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
@@ -179,29 +197,58 @@ section ul li:hover {
     transform: translateY(-3px);
 }
 
+/* Estilos do Rodapé */
+footer {
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Ajuste o padding-top do body para telas menores */
+    }
+
+    /* Regra para a imagem no header em telas menores */
+    header img {
+        max-width: 120px; /* Diminui a logo principal em telas menores */
+    }
+
+    nav {
+        flex-direction: column; /* Empilha a logo e o menu em telas menores */
+        padding: 10px;
+        height: auto;
+    }
+
+    .nav-logo {
+        margin-bottom: 10px; /* Espaço abaixo da logo quando empilhada */
+        margin-right: 0; /* Remove margem lateral */
+        max-width: 50px; /* Diminui ainda mais em telas pequenas */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 8px 0;
+        display: block;
+        text-align: center;
+    }
+
     header h1 {
         font-size: 2.2em;
     }
 
-    header img {
-        max-width: 850px;
-        height: auto;
-        border-radius: var(--borda-arredondada);
-    box-shadow: var(--sombra-leve);
-    border: 3px solid var(--cor-secundaria); /* Borda para a logo */
-    }
-
-    nav ul {
-        flex-direction: column; /* Menu em coluna em telas menores */
-        gap: 10px;
-    }
-
-    nav ul li a {
-        padding: 10px 0;
-        display: block; /* Ocupa toda a largura para cada item do menu */
-        text-align: center;
+    header p {
+        font-size: 1em;
     }
 
     main {
@@ -227,17 +274,30 @@ section ul li:hover {
 
     section ul {
         flex-direction: column;
-        align-items: center; /* Centraliza itens da lista quando em coluna */
+        align-items: center;
     }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8em;
+    body {
+        padding-top: 60px; /* Mais ajuste para telas muito pequenas */
     }
 
+    /* Regra para a imagem no header em telas muito pequenas */
     header img {
-        max-width: 120px;
+        max-width: 100px; /* Diminui a logo principal em telas muito pequenas */
+    }
+
+    nav {
+        padding: 8px;
+    }
+
+    .nav-logo {
+        max-width: 40px; /* Logo ainda menor */
+    }
+
+    header h1 {
+        font-size: 1.8em;
     }
 
     header p {
